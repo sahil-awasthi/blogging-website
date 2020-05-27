@@ -436,7 +436,7 @@ module.exports = g;
     computed: {
         filteredBlogs: function () {
             return this.blogs.filter(blog => {
-                return blog.title.match(this.search);
+                return blog.title.toUpperCase().match(this.search.toUpperCase());
             });
         }
     }
@@ -16775,10 +16775,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     methods: {
         post: function () {
-            this.$http.post('https://vue-blog-c1809.firebaseio.com/posts.json', this.blog).then(function (data) {
-                console.log(data);
-                this.submitted = true;
-            });
+
+            //uncomment below code to enable posting and change the link to your firebase database.
+
+            // this.$http.post('https://vue-blog-c1809.firebaseio.com/posts.json', this.blog).then(function(data){
+            //     console.log(data);
+            //     this.submitted = true;
+            // });
+            alert('Permision not assigned for security reasons.');
+            alert("refer to console to know more.");
+            console.log('create firebase account and after adding a database in it link the link provided to the following lines:' + "1. ./src/components/addBlog.vue line 68 \n" + "2. ./src/components/showBlogs.vue line 24 \n" + "3. ./src/components/addBlog.vue line 26");
         }
     }
 });
